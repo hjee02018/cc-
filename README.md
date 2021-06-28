@@ -1,7 +1,9 @@
 # cc-
 algorithm using c and c++
 // input.txt파일에서 읽어들인 정보를 바탕으로 -> 트리구조 생성
-// 트리구조에서 leftchild가 rightchild보다 많은 노드의 수를 반환(출력)
+/* 트리구조에서 leftchild가 rightchild보다 많은 노드의 수를 반환(출력) */
+
+
 #include <iostream>
 #include <fstream>
 using namespace std;
