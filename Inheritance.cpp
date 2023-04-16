@@ -1,169 +1,165 @@
-/*CH9. °¡»óÇÔ¼ö¿Í Ãß»óÅ¬·¡½º*/
-/* : ´ÙÁß»ó¼ÓÀÇ ¸ğÈ£¼ºÀ» °¡»ó»ó¼ÓÀ¸·Î ÇØ°á °¡´É*/
-/*°¡»óÇÔ¼ö´Â virtualÅ°¿öµå·Î ¼±¾ğµÈ ÇÔ¼ö*/
-/*¿À¹ö¶óÀÌµùÀº ±âº»Å¬·¡½ºÀÇ °¡»óÇÔ¼öÀÇ ÆÄ»ıÅ¬·¡½º¿¡¼­ÀÇ ÀçÁ¤ÀÇ : */
+/*CH9. ê°€ìƒí•¨ìˆ˜ì™€ ì¶”ìƒí´ë˜ìŠ¤*/
+/* : ë‹¤ì¤‘ìƒì†ì˜ ëª¨í˜¸ì„±ì„ ê°€ìƒìƒì†ìœ¼ë¡œ í•´ê²° ê°€ëŠ¥*/
+/*ê°€ìƒí•¨ìˆ˜ëŠ” virtualí‚¤ì›Œë“œë¡œ ì„ ì–¸ëœ í•¨ìˆ˜*/
+/*ì˜¤ë²„ë¼ì´ë”©ì€ ê¸°ë³¸í´ë˜ìŠ¤ì˜ ê°€ìƒí•¨ìˆ˜ì˜ íŒŒìƒí´ë˜ìŠ¤ì—ì„œì˜ ì¬ì •ì˜ : */
 
 
 
-//#include <iostream>
-//using namespace std;
-//class Shape
-//{
-//public:
-//	void paint()
-//	{
-//		draw();
-//	}
-//	virtual void draw()
-//	{
-//		cout << "Shape::draw()called" << endl;
-//	}
-//};
+#include <iostream>
+using namespace std;
+class Shape
+{
+public:
+	void paint()
+	{
+		draw();
+	}
+	virtual void draw()
+	{
+		cout << "Shape::draw()called" << endl;
+	}
+};
 
 
 
-//#include <iostream>
-//using namespace std;
-//class A
-//{
-//	int s, x;
-//protected:
-//	void setS(int s) { this->s = s; }
-//	void setX(int x) { this->x = x; }
-//};
-//class B : private A
-//{
-//
-//};
+#include <iostream>
+using namespace std;
+class A
+{
+	int s, x;
+protected:
+	void setS(int s) { this->s = s; }
+	void setX(int x) { this->x = x; }
+};
+class B : private A
+{
 
-//#include <iostream>
-//using namespace std;
-//class Base
-//{
-//	int a;
-//protected:
-//	void setA(int a) { this -> a = a; }
-//public:
-//	void showA() { cout << a << endl; }
-//};
-//class Derived : private Base
-//	/*ÀÌÁ¦ derivedÅ¬·¡½º±îÁö´Â protected¿Í showAÁ¢±Ù °¡´É*/
-//	/*¿ÜºÎ¿¡¼­´Â ÀüºÎ Á¢±Ù ºÒ°¡ (privateÃ³¸®) ,, ÃßÈÄ»ó¼ÓÅ¬·¡½º¿¡¼­µµ privateÃ³¸®°¡ Àû¿ëµÊ*/
-//	/*¿ÀÁ÷ ÀÚ±âÀÚ½Å±îÁö¸¸ À¯ÁöÇÏ°í ÃßÈÄ&¿ÜºÎ¿¡¼­ Á¢±ÙÁöÁ¤ ¹Ù²ã¹ö¸²*/
-//{
-//	int b;
-//protected:
-//	void setB(int b) { this->b = b; }
-//public:
-//	void showB() { cout << b << endl; }
-//};
-//class GrandDerived : private Derived
-//{
-//private:
-//	int c;
-//protected:
-//	void setAB(int x)
-//	{
-//		setA(x);
-//		//¿ø·¡´ë·Î¶ó¸é base¸¦ »ó¼Ó¹Ş¾ÒÀ¸´Ï privateÁ¦¿Ü Á¢±Ù °¡´ÉÇØ¾ßÇÏÁö¸¸ derived·Î »ó¼ÓµÉ‹š private»ó¼ÓµÇ¾î seta, showa°¡ privateÀÌ µÇ¹ö¸²
-//
-//	}
-//};
+};
 
+#include <iostream>
+using namespace std;
+class Base
+{
+	int a;
+protected:
+	void setA(int a) { this -> a = a; }
+public:
+	void showA() { cout << a << endl; }
+};
+class Derived : private Base
+	/*ì´ì œ derivedí´ë˜ìŠ¤ê¹Œì§€ëŠ” protectedì™€ showAì ‘ê·¼ ê°€ëŠ¥*/
+	/*ì™¸ë¶€ì—ì„œëŠ” ì „ë¶€ ì ‘ê·¼ ë¶ˆê°€ (privateì²˜ë¦¬) ,, ì¶”í›„ìƒì†í´ë˜ìŠ¤ì—ì„œë„ privateì²˜ë¦¬ê°€ ì ìš©ë¨*/
+	/*ì˜¤ì§ ìê¸°ìì‹ ê¹Œì§€ë§Œ ìœ ì§€í•˜ê³  ì¶”í›„&ì™¸ë¶€ì—ì„œ ì ‘ê·¼ì§€ì • ë°”ê¿”ë²„ë¦¼*/
+{
+	int b;
+protected:
+	void setB(int b) { this->b = b; }
+public:
+	void showB() { cout << b << endl; }
+};
+class GrandDerived : private Derived
+{
+private:
+	int c;
+protected:
+	void setAB(int x)
+	{
+		setA(x);
+		//ì›ë˜ëŒ€ë¡œë¼ë©´ baseë¥¼ ìƒì†ë°›ì•˜ìœ¼ë‹ˆ privateì œì™¸ ì ‘ê·¼ ê°€ëŠ¥í•´ì•¼í•˜ì§€ë§Œ derivedë¡œ ìƒì†ë Â‹Âš privateìƒì†ë˜ì–´ seta, showaê°€ privateì´ ë˜ë²„ë¦¼
 
-//#include <iostream>
-//using namespace std;
-//class A
-//{
-//private:
-//	int a = 10;
-//protected:
-//	int b = 20;
-//public:
-//	int c = 30;
-//};
-//class B : protected A
-//{
-//public:
-//	//protected»ó¼Ó ÇÏ¸é private a´Â Á¢±Ù ºÒ°¡
-//	/*void fa() { cout << a << endl; }*/
-//	//b¶û cÀº Á¢±Ù °¡´É
-//	void fb() { cout << b << endl; }
-//	void fc() { cout << c << endl; }
-//};
-//int main()
-//{
-//	B hj;
-//	//¿ÜºÎ¿¡¼­ c¿¡ Á¢±Ù ºÒ°¡  <- protected Ã³¸®µÇ¾î »ó¼ÓÅ¬·¡½º¿¡¼­¸¸ Á¢±Ù °¡´É
-//}
+	}
+};
 
+#include <iostream>
+using namespace std;
+class A
+{
+private:
+	int a = 10;
+protected:
+	int b = 20;
+public:
+	int c = 30;
+};
+class B : protected A
+{
+public:
+	//protectedìƒì† í•˜ë©´ private aëŠ” ì ‘ê·¼ ë¶ˆê°€
+	/*void fa() { cout << a << endl; }*/
+	//bë‘ cì€ ì ‘ê·¼ ê°€ëŠ¥
+	void fb() { cout << b << endl; }
+	void fc() { cout << c << endl; }
+};
+int main()
+{
+	B hj;
+	//ì™¸ë¶€ì—ì„œ cì— ì ‘ê·¼ ë¶ˆê°€  <- protected ì²˜ë¦¬ë˜ì–´ ìƒì†í´ë˜ìŠ¤ì—ì„œë§Œ ì ‘ê·¼ ê°€ëŠ¥
+}
 
-//#include <iostream>
-//using namespace std;
-//class A
-//{
-//private:
-//	int a=10;
-//protected:
-//	int b=20;
-//public:
-//	int c=30;
-//};
-//
-//class B : private A
-///*AÅ¬·¡½º¸¦ private »ó¼ÓÇÏ´Â BÅ¬·¡½º*/
-//{
-//public:
-//	//ÆÄ»ıÅ¬·¡½º B¿¡¼­ -> aÁ¢±ÙºÒ°¡ / b,cÁ¢±Ù°¡´É
-//	/*void fa() { cout << a << endl; }*/
-//	void fb() { cout << b << endl; }
-//	void fc() { cout << c << endl; }
-//};
-//int main()
-//{
-//	B hj;
-//	//¿ÜºÎ¿¡¼­´Â ÀÌÁ¦ a,b,cÀüºÎ private ( Á¢±ÙºÒ°¡)
-//	hj.fb();
-//	hj.fc();
-//}
-////privateÁ¢±ÙÁöÁ¤ ->ÆÄ»ıÅ¬·¡½º¿¡¼­´Â privateÁ¦¿Ü Á¢±Ù °¡´É
-////¿ÜºÎ¿¡¼­´Â -> ÀüºÎ privateÃ³¸®µÇ¾î Á¢±Ù ºÒ°¡
+#include <iostream>
+using namespace std;
+class A
+{
+private:
+	int a=10;
+protected:
+	int b=20;
+public:
+	int c=30;
+};
 
-
-//#include <iostream>
-//#include <string>
-//using namespace std;
-//class TV
-//{
-//	int size;
-//public:
-//	TV(int size=20) { this->size = size; }
-//	int getSize() { return size; }
-//};
-//class WideTV : public TV
-//{
-//	bool videoIn;
-//public:
-//	WideTV(int size, bool videoIN) : TV(size)
-//	{
-//		this->videoIn = videoIN;
-//	}
-//	bool getVideoIn() { return videoIn; }
-//};
-//class SmartTV :public WideTV
-//{
-//	string ip;
-//public:
-//	SmartTV(int size, bool videoIN, string ip) : WideTV(size, videoIN)
-//	{
-//		this->ip = ip;
-//	}
-//	string getIP() { return ip; }
-//};
-//int main()
-//{
-//	SmartTV hj(100, true, "hjhj");
-//	cout<<hj.getSize()<<endl;
-//	cout<<hj.getVideoIn()<<endl;
-//	cout<<hj.getIP()<<endl;
-//}
+class B : private A
+/*Aí´ë˜ìŠ¤ë¥¼ private ìƒì†í•˜ëŠ” Bí´ë˜ìŠ¤*/
+{
+public:
+	//íŒŒìƒí´ë˜ìŠ¤ Bì—ì„œ -> aì ‘ê·¼ë¶ˆê°€ / b,cì ‘ê·¼ê°€ëŠ¥
+	/*void fa() { cout << a << endl; }*/
+	void fb() { cout << b << endl; }
+	void fc() { cout << c << endl; }
+};
+int main()
+{
+	B hj;
+	//ì™¸ë¶€ì—ì„œëŠ” ì´ì œ a,b,cì „ë¶€ private ( ì ‘ê·¼ë¶ˆê°€)
+	hj.fb();
+	hj.fc();
+}
+//privateì ‘ê·¼ì§€ì • ->íŒŒìƒí´ë˜ìŠ¤ì—ì„œëŠ” privateì œì™¸ ì ‘ê·¼ ê°€ëŠ¥
+//ì™¸ë¶€ì—ì„œëŠ” -> ì „ë¶€ privateì²˜ë¦¬ë˜ì–´ ì ‘ê·¼ ë¶ˆê°€
+#include <iostream>
+#include <string>
+using namespace std;
+class TV
+{
+	int size;
+public:
+	TV(int size=20) { this->size = size; }
+	int getSize() { return size; }
+};
+class WideTV : public TV
+{
+	bool videoIn;
+public:
+	WideTV(int size, bool videoIN) : TV(size)
+	{
+		this->videoIn = videoIN;
+	}
+	bool getVideoIn() { return videoIn; }
+};
+class SmartTV :public WideTV
+{
+	string ip;
+public:
+	SmartTV(int size, bool videoIN, string ip) : WideTV(size, videoIN)
+	{
+		this->ip = ip;
+	}
+	string getIP() { return ip; }
+};
+int main()
+{
+	SmartTV hj(100, true, "hjhj");
+	cout<<hj.getSize()<<endl;
+	cout<<hj.getVideoIn()<<endl;
+	cout<<hj.getIP()<<endl;
+}
