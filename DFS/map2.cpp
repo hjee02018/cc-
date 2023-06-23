@@ -40,9 +40,16 @@ bool check(int i, int j)
 
 bool checkAdj()
 {
-	cout << next_map.size() << " size" << endl;
-
+	cout << N << M << endl;
 	bool isDone = true;
+
+	while (!next_map.empty())
+	{
+		int i = next_map.back().first;
+		int j = next_map.back().second;
+		map[i][j] = 0;
+		next_map.pop_back();
+	}
 
 	for (int i = 0;i < N;i++)
 	{
@@ -56,19 +63,14 @@ bool checkAdj()
 			}
 		}
 	}
-	while (!next_map.empty())
-	{
-		int i = next_map.back().first;
-		int j = next_map.back().second;
-		map[i][j] = 0;
-		next_map.pop_back();
-	}
 	return isDone;
 }
 
 int main(int argc, char** argv)
 {
+	
 	cin >> N >> M;
+	cout << N << M;
 	// NÇàM¿­
 	for (int i = 0;i < N;i++)
 	{
